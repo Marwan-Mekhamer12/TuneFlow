@@ -53,6 +53,4 @@ class AlbumViewController: AlbumViewModelProtocol {
             }
         }
     }
-    
-    
 }

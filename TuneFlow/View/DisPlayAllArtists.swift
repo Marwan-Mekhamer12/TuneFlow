@@ -78,7 +78,13 @@ extension DisPlayAllArtists: UICollectionViewDelegate, UICollectionViewDataSourc
         return 0.1
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let data = arrData[indexPath.row]
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "showartistinfo") as? ShowArtistInfo {
+            vc.artists = data
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }
 
 extension DisPlayAllArtists: UISearchResultsUpdating, UISearchBarDelegate {

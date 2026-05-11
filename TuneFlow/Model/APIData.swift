@@ -50,6 +50,7 @@ struct Album: Codable {
     let coverXL: String
     let artist: Artist?
     
+    
     enum CodingKeys: String, CodingKey {
         case id, title, artist
         case coverMedium = "cover_medium"

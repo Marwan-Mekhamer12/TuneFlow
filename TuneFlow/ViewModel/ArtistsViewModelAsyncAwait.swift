@@ -60,8 +60,4 @@ final class ArtistsViewModelAsyncAwait: ArtistsViewModelAsyncAwaitProtocol {
             self.errorMessage = "Search artist field: \(error.localizedDescription)"
         }
     }
-    
-    
-    
-    
 }

@@ -72,8 +72,11 @@ extension DisPlayAllAlbums: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let items = filterData[indexPath.row]
-        print(items.title)
+        let data = filterData[indexPath.row]
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "showalbum") as? ShowAlbum {
+            vc.album = data
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 

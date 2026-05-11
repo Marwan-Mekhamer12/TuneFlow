@@ -143,7 +143,7 @@ class Home: UIViewController {
     
 }
 
-// Mark: - CollectionView
+// Mark: - CollectionView - Artists
 
 extension Home: UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -158,9 +158,17 @@ extension Home: UICollectionViewDelegate, UICollectionViewDataSource {
         return cell
         
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let data = arrDataArtists[indexPath.row]
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "showartistinfo") as? ShowArtistInfo {
+            vc.artists = data
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }
 
-// Mark: - TableView
+// Mark: - TableView - Albums
 
 extension Home: UITableViewDelegate, UITableViewDataSource {
     
@@ -180,8 +188,11 @@ extension Home: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let items = disPlayAlbums[indexPath.row]
-        print(items.title)
+        let data = disPlayAlbums[indexPath.row]
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "showalbum") as? ShowAlbum {
+            vc.album = data
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 
