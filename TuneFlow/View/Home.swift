@@ -13,6 +13,9 @@ class Home: UIViewController {
     
     @IBOutlet weak var ArtistsCollectionView: UICollectionView!
     @IBOutlet weak var AlbumTableView: UITableView!
+    @IBOutlet weak var SongsTableView: UITableView!
+    
+    
     
     @IBOutlet weak var circleProfile: UIButton!
     @IBOutlet weak var usernameLabel: UILabel!
@@ -27,9 +30,15 @@ class Home: UIViewController {
         Array(arrDataAlbums.prefix(7))
     }
     
+    private var arrDataSongs = [Song]()
+    private var displaySongs: [Song] {
+        Array(arrDataSongs.prefix(7))
+    }
+    
     
     private let viewModelArtists = ArtistsViewModelAsyncAwait()
     private let viewModelAlbums = AlbumViewModelAsyncAwait()
+    private let viewModelSongs = songViewModelAsyncAwait()
     private var cancelLabel = Set<AnyCancellable>()
     private var loadingTasks: Task<Void, Never>?
     private var hasLoadedData = false
@@ -42,6 +51,9 @@ class Home: UIViewController {
         starting()
         bindingArtists()
         bindingAlbums()
+        bindingSongs()
+        
+        
         
     }
     
@@ -52,6 +64,7 @@ class Home: UIViewController {
         loadingTasks = Task { [weak self] in
             await self?.viewModelArtists.loadingData()
             await self?.viewModelAlbums.loadingData()
+            await self?.viewModelSongs.loadingData()
         }
     }
     
@@ -101,12 +114,35 @@ class Home: UIViewController {
             .store(in: &cancelLabel)
     }
     
+    private func bindingSongs() {
+        viewModelSongs.$arrData
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] songs in
+                self?.arrDataSongs = songs
+                self?.SongsTableView.reloadData()
+            }
+            .store(in: &cancelLabel)
+        
+        // show songs alert
+        viewModelSongs.$errorMessage
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] error in
+                if let error = error {
+                    self?.showAlert(error)
+                }
+            }
+            .store(in: &cancelLabel)
+    }
+    
     private func starting() {
         ArtistsCollectionView.delegate = self
         ArtistsCollectionView.dataSource = self
         
         AlbumTableView.delegate = self
         AlbumTableView.dataSource = self
+        
+        SongsTableView.delegate = self
+        SongsTableView.dataSource = self
         
         setupRefreshController()
         
@@ -141,6 +177,11 @@ class Home: UIViewController {
         }
     }
     
+    @IBAction func viewAllSongs(_ sender: UIButton) {
+        // songcell
+    }
+    
+    
 }
 
 // Mark: - CollectionView - Artists
@@ -153,7 +194,7 @@ extension Home: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let items = disPlayArtists[indexPath.item]
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "artistscell", for: indexPath) as! ArtistsCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "artistcell", for: indexPath) as! ArtistsCell
         cell.setUp(item: items)
         return cell
         
@@ -168,19 +209,42 @@ extension Home: UICollectionViewDelegate, UICollectionViewDataSource {
     }
 }
 
-// Mark: - TableView - Albums
+// Mark: - TableView - Albums & Songs
 
 extension Home: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return disPlayAlbums.count
+        if tableView == AlbumTableView {
+            return disPlayAlbums.count
+        } else if tableView == SongsTableView {
+            return displaySongs.count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let items = disPlayAlbums[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "albumcell") as! AlbumCell
-        cell.setUp(items: items)
-        return cell
+        
+        
+        
+        if tableView == AlbumTableView {
+            let itemsAlbums = disPlayAlbums[indexPath.row]
+            guard  let cell = tableView.dequeueReusableCell(withIdentifier: "albumcell") as? AlbumCell else {
+                return UITableViewCell()
+            }
+            cell.setUp(items: itemsAlbums)
+            return cell
+            
+        } else if tableView == SongsTableView {
+            let itemsSongs = displaySongs[indexPath.row]
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "songcell", for: indexPath) as? SongsCell else {
+                return UITableViewCell()
+            }
+            cell.setUp(item: itemsSongs)
+            return cell
+        }
+        
+        return UITableViewCell()
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -188,21 +252,29 @@ extension Home: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let data = disPlayAlbums[indexPath.row]
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "showalbum") as? ShowAlbum {
-            vc.album = data
-            navigationController?.pushViewController(vc, animated: true)
+        
+        if tableView == AlbumTableView {
+            let albumData = disPlayAlbums[indexPath.row]
+            if let vc = storyboard?.instantiateViewController(withIdentifier: "showalbum") as? ShowAlbum {
+                vc.album = albumData
+                navigationController?.pushViewController(vc, animated: true)
+            }
+        } else if tableView == SongsTableView {
+            let songData = displaySongs[indexPath.row]
+            print(songData.id)
         }
     }
 }
 
 // Mark: - Refresh Data
+
 extension Home {
     
     private func setupRefreshController() {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         AlbumTableView.refreshControl = refreshControl
+        SongsTableView.refreshControl = refreshControl
     }
     
     @objc private func refreshData() {
@@ -217,3 +289,6 @@ extension Home {
         }
     }
 }
+
+
+

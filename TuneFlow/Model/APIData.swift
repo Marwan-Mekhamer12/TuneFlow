@@ -46,14 +46,33 @@ struct Artist: Codable {
 struct Album: Codable {
     let id: Int
     let title: String
+    let tracklist: String
     let coverMedium: String
     let coverXL: String
     let artist: Artist?
     
     
     enum CodingKeys: String, CodingKey {
-        case id, title, artist
+        case id, title, artist, tracklist
         case coverMedium = "cover_medium"
         case coverXL = "cover_xl"
+    }
+}
+
+struct tracklist: Codable {
+    let data: [tracklistItems]
+}
+
+struct tracklistItems: Codable {
+    let id: Int
+    let title: String
+    let link: String
+    let preview: String
+    let duration: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case id, title,
+             link, preview,
+             duration
     }
 }

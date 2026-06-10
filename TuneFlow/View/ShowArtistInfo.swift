@@ -44,8 +44,22 @@ class ShowArtistInfo: UIViewController {
     }
     
     @IBAction func openLink(_ sender: UIButton) {
-        guard let link = artists?.link, let url = URL(string: link) else {return}
-        let safariVC = SFSafariViewController(url: url)
-        present(safariVC, animated: true)
+        openLinkAlert()
+    }
+    
+    private func openLinkAlert() {
+        let alert = UIAlertController(
+            title: "Open Link?",
+            message: "Are you sure that you want open this link?",
+            preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Open", style: .default, handler: { [weak self] _ in
+            if let link = self?.artists?.link, let url = URL(string: link) {
+                let safareieURL = SFSafariViewController(url: url)
+                self?.present(safareieURL, animated: true)
+            }
+        }))
+        present(alert, animated: true)
     }
 }

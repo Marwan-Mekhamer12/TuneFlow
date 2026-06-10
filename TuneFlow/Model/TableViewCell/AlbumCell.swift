@@ -32,7 +32,7 @@ class AlbumCell: UITableViewCell {
         
         if let NSCache = Cache.shared.object(forKey: urlString as NSString) {
             
-            await MainActor.run {[weak self] in
+            await MainActor.run { [weak self] in
                 self?.albumImg.image = NSCache
             
             }

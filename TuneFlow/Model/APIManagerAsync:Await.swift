@@ -16,7 +16,7 @@ final class APIManagerAsyncAwait: APIManagerAsyncAwaitProtocol {
     func fetchData<T: Codable>(_ urlString: String) async throws -> T {
         // 1. Create URL
         guard let url = URL(string: urlString) else {
-            throw APIError.invalidURL(urlString)
+            throw ErrorHandling.invalidURL(urlString)
         }
         
         do {
@@ -25,11 +25,11 @@ final class APIManagerAsyncAwait: APIManagerAsyncAwaitProtocol {
             
             // 3. Check Response
             guard let httpResponse = response as? HTTPURLResponse else {
-                throw APIError.badResponse(-1)
+                throw ErrorHandling.badResponse(-1)
             }
             
             guard (200...299).contains(httpResponse.statusCode) else {
-                throw APIError.badResponse(httpResponse.statusCode)
+                throw ErrorHandling.badResponse(httpResponse.statusCode)
             }
             
             // 4. Decoded
@@ -38,7 +38,7 @@ final class APIManagerAsyncAwait: APIManagerAsyncAwaitProtocol {
                 return decoded
                 
             } catch {
-                throw APIError.decodedField("\(error)")
+                throw ErrorHandling.decodedField("\(error)")
             }
             
         } catch {

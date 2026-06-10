@@ -23,6 +23,8 @@
 		F48A16662F95C934008CEEC7 /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48A16652F95C934008CEEC7 /* AlbumCell.swift */; };
 		F48E5FDA2F88835500686692 /* ArtistsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48E5FD92F88835500686692 /* ArtistsCell.swift */; };
 		F49A590F2FA816F5000A147B /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49A590E2FA816F5000A147B /* ApiError.swift */; };
+		F4B8525D2FD14D500098105F /* SongsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B8525C2FD14D500098105F /* SongsCell.swift */; };
+		F4B8525F2FD152050098105F /* SongViewModelAsyncAwait.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B8525E2FD152050098105F /* SongViewModelAsyncAwait.swift */; };
 		F4BE525E2FB1911B008F1A06 /* ShowAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BE525D2FB1911B008F1A06 /* ShowAlbum.swift */; };
 		F4D797582F9D9C0700B11F5D /* APIManagerAsync:Await.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D797572F9D9C0700B11F5D /* APIManagerAsync:Await.swift */; };
 		F4D7975A2F9DA6F300B11F5D /* ArtistsViewModelAsyncAwait.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D797592F9DA6F300B11F5D /* ArtistsViewModelAsyncAwait.swift */; };
@@ -49,6 +51,8 @@
 		F48A16652F95C934008CEEC7 /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
 		F48E5FD92F88835500686692 /* ArtistsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsCell.swift; sourceTree = "<group>"; };
 		F49A590E2FA816F5000A147B /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
+		F4B8525C2FD14D500098105F /* SongsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsCell.swift; sourceTree = "<group>"; };
+		F4B8525E2FD152050098105F /* SongViewModelAsyncAwait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewModelAsyncAwait.swift; sourceTree = "<group>"; };
 		F4BE525D2FB1911B008F1A06 /* ShowAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAlbum.swift; sourceTree = "<group>"; };
 		F4D797572F9D9C0700B11F5D /* APIManagerAsync:Await.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIManagerAsync:Await.swift"; sourceTree = "<group>"; };
 		F4D797592F9DA6F300B11F5D /* ArtistsViewModelAsyncAwait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsViewModelAsyncAwait.swift; sourceTree = "<group>"; };
@@ -126,6 +130,7 @@
 				F48A16622F95BA7A008CEEC7 /* AlbumViewModel.swift */,
 				F4D797592F9DA6F300B11F5D /* ArtistsViewModelAsyncAwait.swift */,
 				F4D7975B2F9EB38000B11F5D /* AlbumViewModelAsyncAwait.swift */,
+				F4B8525E2FD152050098105F /* SongViewModelAsyncAwait.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -156,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				F48A16652F95C934008CEEC7 /* AlbumCell.swift */,
+				F4B8525C2FD14D500098105F /* SongsCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -250,10 +256,12 @@
 				F466486F2F78C74400BABADC /* APIManager.swift in Sources */,
 				F466486A2F78C1CE00BABADC /* APIData.swift in Sources */,
 				F4BE525E2FB1911B008F1A06 /* ShowAlbum.swift in Sources */,
+				F4B8525F2FD152050098105F /* SongViewModelAsyncAwait.swift in Sources */,
 				F466486C2F78C5D800BABADC /* Cache.swift in Sources */,
 				F46648562F78BF7300BABADC /* Home.swift in Sources */,
 				F4E668CA2F985A8D009D9CE8 /* DisPlayAllAlbums.swift in Sources */,
 				F46648522F78BF7300BABADC /* AppDelegate.swift in Sources */,
+				F4B8525D2FD14D500098105F /* SongsCell.swift in Sources */,
 				F46648712F78CDE700BABADC /* ArtistsViewModel.swift in Sources */,
 				F4D797582F9D9C0700B11F5D /* APIManagerAsync:Await.swift in Sources */,
 				F4D7975C2F9EB38000B11F5D /* AlbumViewModelAsyncAwait.swift in Sources */,
