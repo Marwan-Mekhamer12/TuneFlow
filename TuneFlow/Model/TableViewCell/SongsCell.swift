@@ -19,6 +19,7 @@ class SongsCell: UITableViewCell {
     func setUp(item: Song) {
         titleLabel.text = item.title
         artistNameLabel.text = item.artist.name
+        albumNameLabel.text = item.album.title
         urlImg.layer.cornerRadius = 27
         urlImg.image = nil
         currentTask?.cancel()

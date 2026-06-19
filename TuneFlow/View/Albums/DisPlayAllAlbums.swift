@@ -48,7 +48,8 @@ class DisPlayAllAlbums: UIViewController {
            } else {
                filterData = arrData.filter {
                    $0.title.localizedCaseInsensitiveContains(query) ||
-                   ($0.artist?.name ?? "").localizedCaseInsensitiveContains(query)
+                   ($0.artist?.name ?? "").localizedCaseInsensitiveContains(query) 
+                   
                }
            }
            tableView.reloadData()
@@ -73,6 +74,7 @@ extension DisPlayAllAlbums: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let data = filterData[indexPath.row]
+        tableView.deselectRow(at: indexPath, animated: true)
         if let vc = storyboard?.instantiateViewController(withIdentifier: "showalbum") as? ShowAlbum {
             vc.album = data
             navigationController?.pushViewController(vc, animated: true)
@@ -80,6 +82,7 @@ extension DisPlayAllAlbums: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+// Mark: - Search Controller
 extension DisPlayAllAlbums: UISearchResultsUpdating, UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         let query = searchController.searchBar.text ?? ""
@@ -88,6 +91,7 @@ extension DisPlayAllAlbums: UISearchResultsUpdating, UISearchBarDelegate {
 }
 
 
+// Mark: - Refresh Conrtoller
 extension DisPlayAllAlbums {
     func refreshController() {
         let refresh = UIRefreshControl()

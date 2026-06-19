@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import AVFoundation
 
 @MainActor
 class Home: UIViewController {
@@ -179,6 +180,12 @@ class Home: UIViewController {
     
     @IBAction func viewAllSongs(_ sender: UIButton) {
         // songcell
+        
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "allsongs") as? DisplayAllSongs {
+            vc.title = "Songs"
+            vc.arrData = arrDataSongs
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     
@@ -253,15 +260,22 @@ extension Home: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        
+        
         if tableView == AlbumTableView {
             let albumData = disPlayAlbums[indexPath.row]
+            tableView.deselectRow(at: indexPath, animated: true)
             if let vc = storyboard?.instantiateViewController(withIdentifier: "showalbum") as? ShowAlbum {
                 vc.album = albumData
                 navigationController?.pushViewController(vc, animated: true)
             }
         } else if tableView == SongsTableView {
             let songData = displaySongs[indexPath.row]
-            print(songData.id)
+            tableView.deselectRow(at: indexPath, animated: true)
+            if let vc = storyboard?.instantiateViewController(withIdentifier: "showsongs") as? ShowSongsInfo {
+                vc.songs = songData
+                navigationController?.pushViewController(vc, animated: true)
+            }
         }
     }
 }

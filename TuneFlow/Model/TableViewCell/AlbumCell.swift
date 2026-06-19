@@ -17,7 +17,7 @@ class AlbumCell: UITableViewCell {
  
     func setUp(items: Album) {
         albumLabel.text = items.title
-        artistLabel.text = items.title
+        artistLabel.text = items.artist?.name ?? "Known"
         albumImg.image = nil
         albumImg.layer.cornerRadius = 27
         currentTask?.cancel()

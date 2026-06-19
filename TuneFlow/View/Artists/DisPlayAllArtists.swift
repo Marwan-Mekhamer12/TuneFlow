@@ -46,7 +46,11 @@ class DisPlayAllArtists: UIViewController {
             if query.isEmpty {
                 filterData = arrData
             } else {
-                filterData = arrData.filter { $0.name.localizedCaseInsensitiveContains(query) }
+                filterData = arrData.filter {
+                    $0.name.localizedCaseInsensitiveContains(query)
+                    
+                    
+                }
             }
             collectionView.reloadData()
         }
