@@ -15,12 +15,9 @@ final class AudioPlayerManager {
     var player: AVPlayer?
     
     func play(_ urlString: String) {
-        if player == nil{
-            guard let url = URL(string: urlString) else {return}
-            player = AVPlayer(url: url)
-        }
-            player?.play()
-        
+        guard let url = URL(string: urlString) else {return}
+        player = AVPlayer(url: url)
+        player?.play()
     }
     
     func pause() {

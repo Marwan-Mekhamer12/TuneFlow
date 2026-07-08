@@ -95,6 +95,11 @@ extension Library: UICollectionViewDelegate, UICollectionViewDataSource {
         let items = filterData[indexPath.row]
         print(items.title)
         collectionView.deselectItem(at: indexPath, animated: true)
+        
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "showsongs") as? ShowSongsInfo {
+            vc.songs = items
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 

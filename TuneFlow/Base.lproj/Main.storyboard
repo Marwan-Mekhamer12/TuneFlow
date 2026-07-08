@@ -996,22 +996,6 @@
             </objects>
             <point key="canvasLocation" x="2791.6030534351144" y="2017.605633802817"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="vGW-cj-H4H">
-            <objects>
-                <viewController id="f26-3e-oIY" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="iFa-bE-3Kt">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="Pu2-ix-f2O"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="rQM-ug-iP7"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0IV-cs-ymc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3720" y="1896"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="LYk-P4-63q">
             <objects>
@@ -1024,8 +1008,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="VEb-Mb-ZSG" kind="relationship" relationship="viewControllers" id="o22-Sv-WTK"/>
-                        <segue destination="8tT-62-R8U" kind="relationship" relationship="viewControllers" id="WDq-a9-Suc"/>
-                        <segue destination="edN-0h-Eol" kind="relationship" relationship="viewControllers" id="cou-Ji-bMa"/>
                         <segue destination="vR2-Kp-i4H" kind="relationship" relationship="viewControllers" id="R08-F1-saq"/>
                         <segue destination="s1T-62-mMt" kind="relationship" relationship="viewControllers" id="CCO-YX-fGW"/>
                     </connections>
@@ -1058,23 +1040,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iag-tY-IQW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2792" y="1152"/>
-        </scene>
-        <!--Feed-->
-        <scene sceneID="pBP-rO-S6l">
-            <objects>
-                <navigationController id="8tT-62-R8U" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Feed" image="circle.hexagongrid" catalog="system" id="OLt-99-iJQ"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XYV-Wk-Zvv">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="f26-3e-oIY" kind="relationship" relationship="rootViewController" id="tx1-f7-9rH"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jgm-ER-elQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3720" y="1151"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="kKs-GU-1ST">
@@ -1259,23 +1224,6 @@
             </objects>
             <point key="canvasLocation" x="1864.885496183206" y="-364.08450704225356"/>
         </scene>
-        <!--Search-->
-        <scene sceneID="RzH-zP-cij">
-            <objects>
-                <navigationController id="edN-0h-Eol" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="gLh-gw-9R5"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="d2X-4Y-Z8b">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="RHQ-En-rNg" kind="relationship" relationship="rootViewController" id="eMM-aE-iaY"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="m3c-vJ-MvG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4581" y="1151"/>
-        </scene>
         <!--Library-->
         <scene sceneID="7Bb-yG-58O">
             <objects>
@@ -1291,7 +1239,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4kk-tT-G7E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5465" y="1151"/>
+            <point key="canvasLocation" x="3840" y="1151"/>
         </scene>
         <!--Upgrade-->
         <scene sceneID="boZ-vh-7rE">
@@ -1308,23 +1256,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gFm-C9-H2q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6326" y="1151"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="djG-gk-nSU">
-            <objects>
-                <viewController id="RHQ-En-rNg" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="dbf-hk-ghY">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="e2x-8L-TsI"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="OAU-Xc-1lY"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2fF-0V-vKI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4581" y="1896"/>
+            <point key="canvasLocation" x="4702" y="1151"/>
         </scene>
         <!--Library-->
         <scene sceneID="UHb-nM-Ash">
@@ -1428,23 +1360,55 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WGj-VF-kLV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5464.8854961832058" y="1895.7746478873241"/>
+            <point key="canvasLocation" x="3840" y="1896"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile-->
         <scene sceneID="QVF-Ik-aR9">
             <objects>
-                <viewController id="tJy-GA-9RM" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="profile" id="tJy-GA-9RM" customClass="Profile" customModule="TuneFlow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vg7-nH-utA">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ayr-ob-3Cn">
+                                <rect key="frame" x="146" y="103" width="100" height="100"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="person.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="60"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="changeImage:" destination="tJy-GA-9RM" eventType="touchUpInside" id="LUw-xm-qhc"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marwan Mekhamer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZL-Sa-CZ7">
+                                <rect key="frame" x="16" y="215" width="361" height="46"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="7tf-71-s8Y"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ayr-ob-3Cn" firstAttribute="top" secondItem="7tf-71-s8Y" secondAttribute="top" id="17H-WK-a2D"/>
+                            <constraint firstItem="7tf-71-s8Y" firstAttribute="bottom" secondItem="vZL-Sa-CZ7" secondAttribute="bottom" constant="508" id="7hu-BB-oMR"/>
+                            <constraint firstItem="7tf-71-s8Y" firstAttribute="trailing" secondItem="vZL-Sa-CZ7" secondAttribute="trailing" constant="16" id="GFe-pP-kzH"/>
+                            <constraint firstItem="vZL-Sa-CZ7" firstAttribute="leading" secondItem="7tf-71-s8Y" secondAttribute="leading" constant="16" id="JSG-D7-3Za"/>
+                            <constraint firstItem="7tf-71-s8Y" firstAttribute="bottom" secondItem="ayr-ob-3Cn" secondAttribute="bottom" constant="566" id="cM9-fe-AtJ"/>
+                            <constraint firstItem="vZL-Sa-CZ7" firstAttribute="top" secondItem="ayr-ob-3Cn" secondAttribute="bottom" constant="12" id="eXg-KW-Xv2"/>
+                            <constraint firstItem="7tf-71-s8Y" firstAttribute="trailing" secondItem="ayr-ob-3Cn" secondAttribute="trailing" constant="147" id="jIT-yA-tQ6"/>
+                            <constraint firstItem="ayr-ob-3Cn" firstAttribute="leading" secondItem="7tf-71-s8Y" secondAttribute="leading" constant="146" id="uZE-Sf-2lR"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Dej-VP-Hv0"/>
+                    <connections>
+                        <outlet property="nameLabel" destination="vZL-Sa-CZ7" id="KWS-3X-rfR"/>
+                        <outlet property="profileShape" destination="ayr-ob-3Cn" id="ADx-4F-mJn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gIR-49-QI9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6326" y="1896"/>
+            <point key="canvasLocation" x="4701.5267175572517" y="1895.7746478873241"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KkL-3h-k6V">
@@ -1512,16 +1476,15 @@
     <resources>
         <image name="apple-logo" width="50" height="50"/>
         <image name="arrow.up.right" catalog="system" width="128" height="112"/>
-        <image name="circle.hexagongrid" catalog="system" width="128" height="115"/>
         <image name="facebook" width="50" height="50"/>
         <image name="google" width="50" height="50"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="link" catalog="system" width="128" height="124"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="music.note" catalog="system" width="96" height="128"/>
         <image name="music.note.list" catalog="system" width="128" height="115"/>
         <image name="person.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="play.fill" catalog="system" width="117" height="128"/>
         <image name="playpause.circle.fill" catalog="system" width="128" height="123"/>
         <image name="square" catalog="system" width="128" height="114"/>

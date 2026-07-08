@@ -10,4 +10,6 @@ import UIKit
 
 class Cache {
     static let shared = NSCache<NSString, UIImage>()
+    
+    private init() {}
 }

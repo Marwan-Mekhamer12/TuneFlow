@@ -158,6 +158,11 @@ class Home: UIViewController {
     }
         
     @IBAction func ProfileAction(_ sender: UIButton) {
+        
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "profile") as? Profile {
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        
     }
     
     @IBAction func viewAllArtists(_ sender: UIButton) {
@@ -179,7 +184,6 @@ class Home: UIViewController {
     }
     
     @IBAction func viewAllSongs(_ sender: UIButton) {
-        // songcell
         
         if let vc = storyboard?.instantiateViewController(withIdentifier: "allsongs") as? DisplayAllSongs {
             vc.title = "Songs"
@@ -295,6 +299,7 @@ extension Home {
         loadingTasks = Task { [weak self] in
             await self?.viewModelAlbums.loadingData()
             await self?.viewModelArtists.loadingData()
+            await self?.viewModelSongs.loadingData()
             
             await MainActor.run {
                 self?.AlbumTableView.refreshControl?.endRefreshing()

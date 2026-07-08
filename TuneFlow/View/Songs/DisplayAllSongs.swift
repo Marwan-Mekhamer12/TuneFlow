@@ -40,10 +40,11 @@ class DisplayAllSongs: UIViewController {
     }
     
     private func filterSongs(with query: String) {
+        let source = LikedManager.shared.likedsong
         if query.isEmpty {
-            filterData = arrData
+            filterData = source
         } else {
-            filterData = arrData.filter{
+            filterData = source.filter{
                 $0.title.localizedCaseInsensitiveContains(query) ||
                 ($0.artist.name ).localizedCaseInsensitiveContains(query) ||
                 ($0.album.title).localizedCaseInsensitiveContains(query)
